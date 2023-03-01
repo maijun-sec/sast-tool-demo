@@ -1,15 +1,11 @@
 package sec.maijun.javaparser.demo.ast;
 
 import com.github.javaparser.JavaParser;
-import com.github.javaparser.ParseResult;
-import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.expr.Expression;
-import com.github.javaparser.ast.stmt.Statement;
 
 /**
  * JavaParser 最基本的功能，这里只是列了一小部分，在基本的AST生成层面，除了下面的例子，还有：
- * 1. parse 文件时，有各种不同的输入；
- * 2. parse AST节点信息，还支持直接 parse Block，Import、SimpleName 等，只是用得不常见。
+ * 1. parse 文件时(输入为文件)，有各种不同的输入；
+ * 2. parse AST节点信息(输入为代码片段，代表不同的语句或者表达式)，还支持直接 parse Block，Import、SimpleName 等，只是用得不常见。
  */
 public class JavaParserExample {
     public static void main(String[] args) {
@@ -54,6 +50,9 @@ public class JavaParserExample {
         System.out.println(result.getResult().get().getClass().getName()); // 获取到的AST类型，这里是 CompilationUnit
     }
 
+    /**
+     * 用来针对代码片段生成 AST，这里的代码片段为表达式
+     */
     public static void parseExpression() {
         var content = """
                 new ArrayList<>()
@@ -64,6 +63,9 @@ public class JavaParserExample {
         System.out.println(result.getResult().get().getClass().getName()); // 获取到的AST类型，这里是 ObjectCreationExpr
     }
 
+    /**
+     * 用来针对代码片段生成AST，这里是一个 语句
+     */
     public static void parseStatement() {
         var content = """
                 List<String> lst = new ArrayList<>();
@@ -74,6 +76,9 @@ public class JavaParserExample {
         System.out.println(result.getResult().get().getClass().getName()); // 获取到的AST类型，这里是 ExpressionStmt
     }
 
+    /**
+     * 用来针对代码片段生成AST，这里是 变量声明表达式(如果在后面加个分号，就是一条语句了)
+     */
     public static void parseVariableDeclarationExpr() {
         var result = new JavaParser().parseVariableDeclarationExpr("int x = 3");
         System.out.println(result.isSuccessful()); // 直接校验是否生成AST成功
