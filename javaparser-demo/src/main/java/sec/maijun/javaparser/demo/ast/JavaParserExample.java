@@ -21,6 +21,9 @@ public class JavaParserExample {
 
         System.out.println("parse statement:");
         parseStatement();
+
+        System.out.println("parse VariableDeclarationExpr:");
+        parseVariableDeclarationExpr();
     }
 
     /**
@@ -31,7 +34,7 @@ public class JavaParserExample {
      * 这里简化测试，直接输入文件的内容
      */
     public static void parseCompilationUnit() {
-        String content = """
+        var content = """
                 import java.util.List;
                 import java.util.ArrayList;
                 
@@ -45,29 +48,36 @@ public class JavaParserExample {
                 }
                 """;
 
-        ParseResult<CompilationUnit> result = new JavaParser().parse(content);
+        var result = new JavaParser().parse(content);
         System.out.println(result.isSuccessful());  // 直接校验是否生成AST成功
         System.out.println(result.getResult().get() != null); // 获取到的AST内容，判断是否为空
         System.out.println(result.getResult().get().getClass().getName()); // 获取到的AST类型，这里是 CompilationUnit
     }
 
     public static void parseExpression() {
-        String content = """
+        var content = """
                 new ArrayList<>()
                 """;
-        ParseResult<Expression> result = new JavaParser().parseExpression(content);
+        var result = new JavaParser().parseExpression(content);
         System.out.println(result.isSuccessful()); // 直接校验是否生成AST成功
         System.out.println(result.getResult().get() != null); // 获取到的AST内容，判断是否为空
         System.out.println(result.getResult().get().getClass().getName()); // 获取到的AST类型，这里是 ObjectCreationExpr
     }
 
     public static void parseStatement() {
-        String content = """
+        var content = """
                 List<String> lst = new ArrayList<>();
                 """;
-        ParseResult<Statement> result = new JavaParser().parseStatement(content);
+        var result = new JavaParser().parseStatement(content);
         System.out.println(result.isSuccessful()); // 直接校验是否生成AST成功
         System.out.println(result.getResult().get() != null); // 获取到的AST内容，判断是否为空
         System.out.println(result.getResult().get().getClass().getName()); // 获取到的AST类型，这里是 ExpressionStmt
+    }
+
+    public static void parseVariableDeclarationExpr() {
+        var result = new JavaParser().parseVariableDeclarationExpr("int x = 3");
+        System.out.println(result.isSuccessful()); // 直接校验是否生成AST成功
+        System.out.println(result.getResult().get() != null); // 获取到的AST内容，判断是否为空
+        System.out.println(result.getResult().get().getClass().getName()); // 获取到的AST类型，这里是 VariableDeclarationExpr
     }
 }
