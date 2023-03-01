@@ -6,6 +6,9 @@ import com.github.javaparser.JavaParser;
  * JavaParser 最基本的功能，这里只是列了一小部分，在基本的AST生成层面，除了下面的例子，还有：
  * 1. parse 文件时(输入为文件)，有各种不同的输入；
  * 2. parse AST节点信息(输入为代码片段，代表不同的语句或者表达式)，还支持直接 parse Block，Import、SimpleName 等，只是用得不常见。
+ *
+ * @since 2023-03-01
+ * @author maijun
  */
 public class JavaParserExample {
     public static void main(String[] args) {
