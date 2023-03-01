@@ -13,6 +13,7 @@ import com.github.javaparser.printer.YamlPrinter;
  * 2. 将 AST 输出出来。
  *
  * 这里，我们将介绍如何将 AST 输出出来，并且输出的 XML，YAML 和 Graphiz dot 三种输出方式
+ * 三种形式都比较直观，如果目的是后续展示（如果展示在页面上），XML 比较舒服，如果是肉眼看，Graphiz dot 比较好，可以输出树形的图片
  *
  * @since 2023-03-01
  * @author maijun
