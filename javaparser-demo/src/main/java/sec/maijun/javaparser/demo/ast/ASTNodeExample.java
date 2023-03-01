@@ -65,7 +65,7 @@ public class ASTNodeExample {
             System.out.println("end column: " + statement.getEnd().get().column); // 结束列
 
             // AST 节点中，包含了两大类函数 asXX 和 ifXX，asXX 是转换为 XX 类型，ifXX 是如果是 XX 类型，就做什么事情
-            statement.ifExpressionStmt(expressionStmt -> {  // ifLambdaExpr 判断是否为 LambdaExpr，如果是，做什么事情
+            statement.ifExpressionStmt(expressionStmt -> {  // ifExpressionStmt 判断是否为 ExpressionStmt，如果是，做什么事情
                 System.out.println("this is a expr statement");
             });
 
