@@ -38,6 +38,8 @@ public class VisitorTraverseExample {
         @Override
         public void visit(VariableDeclarationExpr node, List<VariableDeclarationExpr> lst) {
             lst.add(node);
+
+            // 不管基于哪种 Adapter 实现，在 visit 最后，对需要调用 super.visit，否则就无法遍历子节点了
             super.visit(node, lst);
         }
     }
