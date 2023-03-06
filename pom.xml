@@ -12,6 +12,7 @@
         <module>javaparser-demo</module>
         <module>jdt-demo</module>
         <module>wala-demo</module>
+        <module>dominator-algorithm</module>
     </modules>
 
     <properties>
