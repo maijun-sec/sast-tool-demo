@@ -3,12 +3,11 @@ package sec.maijun.javaparser.demo.typesolver;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.NameExpr;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
-import sec.maijun.javaparser.demo.typesolver.util.SolverUtil;
+import sec.maijun.javaparser.demo.util.SolverUtil;
 
 import java.io.IOException;
 

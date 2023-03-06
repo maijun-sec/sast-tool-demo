@@ -1,4 +1,4 @@
-package sec.maijun.javaparser.demo.typesolver.util;
+package sec.maijun.javaparser.demo.util;
 
 import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JarTypeSolver;
